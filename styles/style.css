@@ -57,7 +57,7 @@ button:hover {
 }
 
 .body {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .main-image {
@@ -65,4 +65,8 @@ button:hover {
     margin-bottom: 20px;
     border-radius: 20%;
     border: 10px solid #ffffff;
+}
+
+.rps-buttons {
+    margin-bottom: 20px;
 }
