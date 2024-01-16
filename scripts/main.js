@@ -25,6 +25,8 @@ function playGame(playerChoice) {
     else if (computerChoice === "scissors") {
         computerEmoji = "✂️";
     }
+
+    
     
     let result = "You: " + playerEmoji + " Computer: " + computerEmoji + ", ";
 
