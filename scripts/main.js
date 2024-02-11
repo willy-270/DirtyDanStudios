@@ -1,68 +1,50 @@
 function playGame(playerChoice) {
     const choices = ["rock", "paper", "scissors"];
-    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
-   let playerEmoji;
-
-    if (playerChoice === "rock") {
-        playerEmoji = "🪨";
-    }
-    else if (playerChoice === "paper") {
-        playerEmoji = "📜";
-    }
-    else if (playerChoice === "scissors") {
-        playerEmoji = "✂️";
-    }
-
-    let computerEmoji;
-
-    if (computerChoice === "rock") {
-        computerEmoji = "🪨";
-    }
-    else if (computerChoice === "paper") {
-        computerEmoji = "📜";
-    }
-    else if (computerChoice === "scissors") {
-        computerEmoji = "✂️";
-    }
-
+    const emojis = {
+        rock: "🪨",
+        paper: "📜",
+        scissors: "✂️"
+    };
     
+    const playerEmoji = emojis[playerChoice];
+    const computerEmoji = emojis[computerChoice];
     
-    let result = "You: " + playerEmoji + " Computer: " + computerEmoji + ", ";
-
+    let result = `You: ${playerEmoji} Computer: ${computerEmoji}, `;
+    
     if (playerChoice === computerChoice) {
         result += "It's a tie!";
-    } else if (playerChoice === "rock") {
-        if (computerChoice === "scissors") {
-            result += "You win!";
-        } else {
-            result += "You lose!";
-        }
+    } else if (
+        (playerChoice === "rock" && computerChoice === "scissors") ||
+        (playerChoice === "paper" && computerChoice === "rock") ||
+        (playerChoice === "scissors" && computerChoice === "paper")
+    ) {
+        result += "You win!";
+    } else {
+        result += "You lose!";
     }
-    else if (playerChoice === "paper") {
-        if (computerChoice === "rock") {
-            result += "You win!";
-        } else {
-            result += "You lose!";
-        }
-    }
-    else if (playerChoice === "scissors") {
-        if (computerChoice === "paper") {
-            result += "You win!";
-        } else {
-            result += "You lose!";
-        }
-    }
-
-    let resultText;
-
-    if (document.getElementById("rps-result") === null) {
+    
+    let resultText = document.getElementById("rps-result");
+    
+    if (resultText === null) {
         const body = document.querySelector("body");
         resultText = document.createElement("p");
         resultText.setAttribute("id", "rps-result");
         body.appendChild(resultText);
     }
-
-    resultText = document.getElementById("rps-result");
+    
     resultText.textContent = result;
+
+    console.log(result);
+}
+
+function showSidebar() {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.style.display = "flex";
+}
+
+function closeSidebar() {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.style.display = "none";
 }

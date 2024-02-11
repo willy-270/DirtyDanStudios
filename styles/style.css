@@ -1,62 +1,116 @@
-/* Reset some default styles */
-body, h1, h2, h3, p, ul, li {
+*{
     margin: 0;
     padding: 0;
 }
 
 body {
+    min-height: 100vh;
     font-family: 'Arial', sans-serif;
     color: #ffffff;
-    padding-top: 60px;
     background-color: rgb(0, 0, 0);
-    background: url("https://i.imgur.com/gKnpt3o.jpg");
-    text-align: center;
+    background: url("/images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(5px);
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1, h2, h3 {
-    color: #ffffff;
-}
 
 p {
     line-height: 1.6;
     font-size: large;
 }
 
-a {
-    color: #009688;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 button {
-    background-color: #009688;
-    color: #fff;
+    background-color: rgba(0, 0, 0, 0.54);
+    color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: larger;
+    backdrop-filter: blur(10px);
 }
 
 button:hover {
-    background-color: #00796b;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.header, .body, .rps-buttons, .image-div, #rps-result {
+    text-align: center;
+    margin: 30px;
 }
 
 .header {
-    margin-bottom: 20px;
+    margin: 60px;
+    font-size: 1.5rem;
 }
 
-.body {
-    margin-bottom: 40px;
+
+nav {
+    background-color: rgba(0, 0, 0, 0.669);
+    box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.6);
+}
+
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav ul li {
+    height: 50px;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white
+}
+
+nav a:hover {
+    background-color: #29292985;
+}
+
+nav li:first-child {
+    margin-right: auto;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.722);
+    backdrop-filter: blur(20px);
+    box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sidebar li, .close {
+    width: 100%;
+}
+
+
+.hamburger svg path {
+    fill: white !important;
+}
+
+.hamburger {
+    display: none;
+}
+
+.close svg path{
+    fill: white !important;
 }
 
 .main-image {
@@ -69,3 +123,23 @@ button:hover {
 .rps-buttons {
     margin-bottom: 20px;
 }
+
+@media (max-width: 768px) {
+    .hideOnMobile {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+}
+
+@media (max-width: 400px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
+
+
+
+
