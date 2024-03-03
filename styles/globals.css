@@ -35,9 +35,13 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.header, .body, .rps-buttons, .image-div, #rps-result {
+.header, .body, .rps-buttons, .image-div, #rps-result{
     text-align: center;
     margin: 30px;
+}
+
+#player-wins, #computer-wins {
+    text-align: center;
 }
 
 .header {
@@ -138,8 +142,3 @@ nav li:first-child {
         width: 100%;
     }
 }
-
-
-
-
-

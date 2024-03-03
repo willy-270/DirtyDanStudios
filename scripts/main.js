@@ -1,3 +1,6 @@
+let computerWins = 0;
+let playerWins = 0;
+
 function playGame(playerChoice) {
     const choices = ["rock", "paper", "scissors"];
     computerChoice = choices[Math.floor(Math.random() * choices.length)];
@@ -21,8 +24,10 @@ function playGame(playerChoice) {
         (playerChoice === "scissors" && computerChoice === "paper")
     ) {
         result += "You win!";
+        playerWins++;
     } else {
         result += "You lose!";
+        computerWins++;
     }
     
     let resultText = document.getElementById("rps-result");
@@ -36,7 +41,21 @@ function playGame(playerChoice) {
     
     resultText.textContent = result;
 
-    console.log(result);
+    let playerWinsText = document.getElementById("player-wins");
+    let computerWinsText = document.getElementById("computer-wins");
+
+    if (playerWinsText === null || computerWinsText === null) {
+        const body = document.querySelector("body");
+        playerWinsText = document.createElement("p");
+        computerWinsText = document.createElement("p");
+        playerWinsText.setAttribute("id", "player-wins");
+        computerWinsText.setAttribute("id", "computer-wins");
+        body.appendChild(playerWinsText);
+        body.appendChild(computerWinsText);
+    }
+
+    playerWinsText.textContent = `Player wins: ${playerWins}`;
+    computerWinsText.textContent = `Computer wins: ${computerWins}`;
 }
 
 function showSidebar() {
